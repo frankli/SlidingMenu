@@ -10,10 +10,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.slidingmenu.lib.SlidingMenu;
+import com.slidingmenu.lib.SlidingMenu.OnOpenListener;
+import com.slidingmenu.lib.SlidingMenu.OnOpenedListener;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
 
 public class BaseActivity extends SlidingFragmentActivity {
@@ -45,6 +48,24 @@ public class BaseActivity extends SlidingFragmentActivity {
 		sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
 		sm.setFadeDegree(0.35f);
 		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+		//sm.setAboveOffset(100);
+		//sm.setBehindWidth(100);
+		sm.setOnOpenListener(new OnOpenListener() {
+
+			@Override
+			public void onOpen() {
+				Log.i("ideamats", "on open");
+			}
+			
+		});
+		sm.setOnOpenedListener(new OnOpenedListener() {
+
+			@Override
+			public void onOpened() {
+				Log.i("ideamats", "on opened");
+			}
+			
+		});
 
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}

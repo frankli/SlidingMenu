@@ -24,6 +24,7 @@ public class PropertiesActivity extends BaseActivity {
 		setSlidingActionBarEnabled(true);
 
 		setContentView(R.layout.properties);
+		
 
 		// touch mode stuff
 		RadioGroup touchAbove = (RadioGroup) findViewById(R.id.touch_above);
