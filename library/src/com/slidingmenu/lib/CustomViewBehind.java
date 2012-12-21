@@ -82,7 +82,7 @@ public class CustomViewBehind extends CustomViewAbove {
 
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent e) {
-		return !mChildrenEnabled;
+		return false;//!mChildrenEnabled;
 	}
 
 	@Override

@@ -40,6 +40,7 @@ public class FragmentChangeActivity extends BaseActivity {
 		
 		// customize the SlidingMenu
 		getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+		getSlidingMenu().setAboveOffset(66);
 	}
 	
 	@Override

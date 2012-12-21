@@ -28,6 +28,7 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
 import com.slidingmenu.lib.SlidingMenu.OnClosedListener;
@@ -105,6 +106,7 @@ public class CustomViewAbove extends ViewGroup {
 	//	private OnOpenListener mOpenListener;
 	private OnClosedListener mClosedListener;
 	private OnOpenedListener mOpenedListener;
+	private int offset;
 
 	//	private int mScrollState = SCROLL_STATE_IDLE;
 
@@ -424,7 +426,7 @@ public class CustomViewAbove extends ViewGroup {
 	public int getDestScrollX(int page) {
 		switch (page) {
 		case 0:
-			return mContent.getPaddingLeft();
+			return offset;
 		case 1:
 			return mContent.getLeft();
 		}
@@ -599,8 +601,12 @@ public class CustomViewAbove extends ViewGroup {
 	public void setAboveOffset(int i) {
 		//		RelativeLayout.LayoutParams params = ((RelativeLayout.LayoutParams)mContent.getLayoutParams());
 		//		params.setMargins(i, params.topMargin, params.rightMargin, params.bottomMargin);
-		mContent.setPadding(i, mContent.getPaddingTop(), 
-				mContent.getPaddingRight(), mContent.getPaddingBottom());
+		RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(getLayoutParams());
+		lp.setMargins(i, 0, 0, 0);
+		this.setLayoutParams(lp);
+		offset = i;
+//		mContent.setPadding(i, mContent.getPaddingTop(), 
+//				mContent.getPaddingRight(), mContent.getPaddingBottom());
 	}
 
 
